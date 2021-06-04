@@ -1,0 +1,36 @@
+html {font-size: 15px;}
+html, body {width: 100%; height: 100%;}
+
+ul, ol, li {list-style: none; padding: 0; margin: 0;}
+
+.alert {text-align: center; display: none;}
+
+.mt_design {box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);}
+.mt_design_2 {box-shadow: 0 1px 2px rgba(0,0,0,0.07)}
+.mt_design_inverse {box-shadow: 2px 0 5px rgba(0,0,0,0.19), 0 2px 10px rgba(0,0,0,0.23);}
+
+.pontinhos_ {display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
