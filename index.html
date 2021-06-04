@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135274570-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-135274570-4');
+  gtag('config', 'AW-516916466');
+</script>
+
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Questions</title>
+
+    <!--========== ogrigatorio ============-->    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="assets/img/icon.png">
+    
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/plugins/animate.css">
+    <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/ionic/ionic.app.css">
+
+    <script src="assets/js/plugins/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/plugins/maskedinput_2.js"></script>
+    <script src="assets/js/plugins/tether.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <!--========== fim ogrigatorio ============-->
+    
+    <script src="assets/js/js_views/template.js"></script>
+
+    <link rel="stylesheet" href="assets/css/css_views/template.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <style>
+        body {
+            font-family: "Raleway", sans-serif;font-size: 22px;
+        }
+
+        h1 {font-size: 20px; line-height: 28px; font-weight: bold; margin-bottom: 12px;}
+        h2 {font-size: 20px; line-height: 28px; font-weight: unset;}
+        p {font-weight: unset; font-size: 16px; line-height: 24px; color: rgba(255, 255, 255, 0.7);}
+
+        .btn, .btn_2 {
+            border: none !important;
+            position: relative;
+            font-family: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition-duration: 0.1s;
+            transition-property: background-color, color, border-color, opacity, box-shadow;
+            transition-timing-function: ease-out;
+            outline: none !important;
+            border: 1px solid transparent;
+            margin: 0px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 12px 0px;
+            padding: 8px 18px;
+            min-height: 48px;
+            background-color: rgb(243, 205, 89);
+            color: rgb(72, 55, 5);
+            border-radius: 4px;
+            width: 100%;
+            font-weight: unset;
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn:hover, .btn_2:hover {background: rgb(245, 213, 114);}
+        .btn:active, .btn_2:active {background: rgb(219, 185, 80);}
+
+        .btn *, .btn_2 * {color: rgb(72, 55, 5); opacity: 0.85;}
+
+        .btn_2 {padding: 6px 14px; min-height: 40px;}
+
+        .img_1 {width: 210px;}
+        #cont_1 ._padding {padding-left: 40px; padding-right: 40px; padding-top: 32px; padding-bottom: 32px; max-width: 880px;}
+        #cont_2 ._padding {padding-left: 40px; padding-right: 40px; padding-top: 32px; padding-bottom: 32px; max-width: 880px;}
+        .cont_questao {background: transparent;}
+        .cont_questao ._padding {padding-left: 40px; padding-right: 40px; padding-top: 32px; padding-bottom: 32px; max-width: 880px;}
+        #cont_2 .span {font-size: 20px; line-height: 28px;}
+        .text_pulsa_enter {display: none;}
+
+        #btn_prev.desativado * {opacity: 0.7;}
+        #btn_next.desativado * {opacity: 0.7;}
+
+        .numero_ {position: absolute; left: -30px; color: rgb(243, 205, 89); font-size: 14px; line-height: 28px;}
+        .numero_ i {font-size: 8px;}
+
+        .input_ {border: none; box-shadow: rgba(243, 205, 89, 0.3) 0px 1px; background: transparent; outline: none; color: rgb(243, 205, 89); padding: 0px 0px 8px; font-size: 24px;}
+
+        .input_:focus {box-shadow: rgb(243, 205, 89) 0px 2px;}
+
+        .input_::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          color: rgba(243, 205, 89, 0.3);
+        }
+        .input_::-moz-placeholder { /* Firefox 19+ */
+          color: rgba(243, 205, 89, 0.3);
+        }
+        .input_:-ms-input-placeholder { /* IE 10+ */
+          color: rgba(243, 205, 89, 0.3);
+        }
+        .input_:-moz-placeholder { /* Firefox 18- */
+          color: rgba(243, 205, 89, 0.3);
+        }
+
+        .alert_danger {color: rgb(187, 60, 80); font-size: 14px; line-height: 20px; font-family: sans-serif; background: rgb(254, 247, 247); min-height: 28px; padding: 4px 8px; border-radius: 3px;}
+
+        .check_box {box-shadow: rgba(243, 205, 89, 0.6) 0px 0px 0px 1px inset; background: rgba(243, 205, 89, 0.1); min-width: 75px; min-width: 40px; padding: 4px; cursor: pointer; border-radius: 4px;}
+
+        .check_box.active_ {box-shadow: rgba(243, 205, 89, 0.6) 0px 0px 0px 2px inset;}
+
+        .check_box .cont_letra {margin: 4px 8px 4px 4px; color: rgb(243, 205, 89); border: solid 1px rgba(243, 205, 89, 0.6); width: 24px; height: 24px; line-height: 16px; border-radius: 2px; background: rgba(21, 15, 15, 0.8); font-size: 12px; font-weight: 700; position: relative;}
+
+        .check_box.active_ .cont_letra {color: rgb(21, 15, 15); background: rgb(243, 205, 89);}
+
+        .check_box .text_ {font-size: 16px; line-height: 24px; font-weight: unset; color: rgb(243, 205, 89);}
+        
+        .check_box .text_tecla {display: none; position: absolute; right: 0; white-space: nowrap; color: color: rgb(243, 205, 89); border: solid 1px rgba(243, 205, 89, 0.6); height: 24px; line-height: 16px; border-radius: 2px; background: rgba(21, 15, 15, 0.8); font-size: 12px; font-weight: 400; padding: 4px;}
+
+        .check_box.active_ .text_tecla {display: none; position: absolute; z-index: 2; right: 20px; color: rgb(21, 15, 15); height: 24px; line-height: 16px; border-radius: 2px; background: rgb(243, 205, 89); font-size: 12px; font-weight: 400; padding: 4px 0 4px 4px;}
+
+        .check_box:hover .cont_letra {border: none; background: transparent;}
+        .check_box:hover .text_letra {opacity: 0;}
+        .check_box:hover .text_tecla {display: block;} 
+        .check_box:hover {background: rgba(243, 205, 89, 0.3);} 
+
+        .check_box .cont_checked svg {opacity: 0;}
+        .check_box.active_ .cont_checked svg {opacity: 1;}
+
+        .btn_enviar {width: 100%;}
+
+        #cont_porcentagem {position: fixed; bottom: 0; left: 0; height: 48px; background-color: rgba(21, 15, 15, 0.8); z-index:9999; transition: 0.3s;}
+
+        .cont_btn {display: block;}
+
+        .img_2 {float: left;}
+
+        @media screen and (min-width: 598px) {
+
+            h1, h2 {font-size: 24px; line-height: 32px;}
+            p {font-size: 20px; line-height: 28px;}
+            .btn {font-size: 24px; line-height: 32px; width: auto;}
+
+            .img_1 {width: 250px;}
+            #cont_1 ._padding {padding-left: 80px; padding-right: 80px; padding-top: 40px; padding-bottom: 40px;}
+            #cont_2 ._padding {padding-left: 80px; padding-right: 80px; padding-top: 120px; padding-bottom: 40px;}
+            .cont_questao ._padding {padding-left: 80px; padding-right: 80px; padding-top: 120px; padding-bottom: 120px;}
+            #cont_2 .span {font-size: 24px; line-height: 32px;}
+            .text_pulsa_enter {display: block;}
+
+            .numero_ {font-size: 15px; line-height: 32px; left: -40px;}
+            .numero_ i {font-size: 12px;}
+
+            .input_ {font-size: 30px;}
+
+            .check_box .text_ {font-size: 20px; line-height: 28px; font-weight: unset; color: rgb(243, 205, 89);}
+
+            .btn_enviar {width: auto !important;}
+
+            #cont_porcentagem {background: transparent;}
+            #cont_porcentagem .p_procentagem {line-height: 23px;}
+            #cont_porcentagem {justify-content: flex-end !important;}
+
+            .cont_btn {display: flex;}
+
+            .img_2 {float: none; display: block; margin-left: auto; margin-right: auto;}
+        }
+    </style>
+
+  </head>
+  <body style=" background-color: rgb(68, 68, 68); background-image: url('assets/img/large.jpg'); background-blend-mode: multiply; background-repeat: no-repeat; background-size: cover; background-position: center top; overflow: hidden;">
+
+    <!-- cont_1 -->
+        <div class="w-100 h-100" style="position: fixed; top: 0; left: 0; position: relative;" id="cont_1">
+
+            <div class="w-100" style="overflow: auto; height: calc(100% - 70px);">
+                
+                <div class="w-100 _padding d-block ml-auto mr-auto" style="">
+                    <div class="text-center" style="padding-bottom: 40px;">
+                        <img class="img_1" src="assets/img/default.png">
+                    </div>
+                    <h1 class="text-white text-center" style="">✅ Creer, La razón que está aquí no es coincidencia!</h1>
+
+                    <p class="text-center">Estas 9 preguntas rápidas y científicamente probadas lo ayudan a descubrir el tipo de energía que vibra en el universo y <strong>lo que realmente le impide el Universo dijera SI a los deseos?</strong><br><br>(haga clic en el botón de abajo para comenzar)</p>
+                </div>
+            </div>
+
+            <div class="w-100 p-3 d-flex align-items-center justify-content-center" style="position: absolute; bottom: 0; left: 0; height: 70px; background-color: rgba(255, 255, 255, 0.05); box-shadow: rgba(255, 255, 255, 0.1) 0px -1px;">
+                
+                <button class="btn btn_next_page">Seguir</button>
+                <div class="ml-3 text-white text_pulsa_enter" style="font-size: 12px; line-height: 16px;">pulsa <strong>Enter ↵</strong></div>
+            </div>
+        </div>
+    <!-- fim cont_1 -->
+
+    <!-- cont porcentagem -->
+        <div class="w-100 p-3 d-none align-items-center justify-content-between animated fadeIn" id="cont_porcentagem">
+                
+            <div style="background-color: rgba(21, 15, 15, 0.8); padding: 0 5px 5px 5px; border-radius: 5px;">
+                <p class="d-flex align-items-center mb-0 p_procentagem" style="font-size: 12px;">
+                    <span class="porcentagem mr-1" style="font-family: sans-serif;">0%</span> completado
+                </p>
+                <div style="position: relative;">
+                    <div class="" style="position: relative; width: 200px; height: 4px; border-radius: 20px; background: rgba(255, 255, 255, 0.1); overflow: hidden;">
+                        <div class="h-100 bg_percent" style="transition: 0.3s; position: absolute; top: 0; left: 0; background: #fff; width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group ml-2">
+                <button id="btn_prev" class="desativado btn p-0 d-flex align-items-center justify-content-center" style="width: 36px; height: 32px !important; min-height: 32px;"><svg height="9" width="14"><path d="M11.996 8.121l1.414-1.414L6.705 0 0 6.707l1.414 1.414 5.291-5.293z"></path></svg></button>
+
+                <button id="btn_next" class="btn p-0 d-flex align-items-center justify-content-center" style="width: 36px; height: 32px !important; min-height: 32px; border-left: solid 1px rgba(72, 55, 5, 0.3) !important;"><svg height="9" width="14"><path d="M12.293.293l1.414 1.414L7 8.414.293 1.707 1.707.293 7 5.586z"></path></svg></button>
+            </div>
+        </div>
+    <!-- fim cont porcentagem -->
+
+    <!-- cont_2 -->
+        <div class="w-100 h-100" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s; background: transparent;" id="cont_2">
+            <div class="_padding text-white d-block ml-auto mr-auto">
+                <span class="span">💬 "¡Fantástico! ¡Las respuestas han revolucionado mi vida!"  <br>- Susan G. (Evaluación ⭐⭐⭐⭐⭐) <br><br>💬 "¡El resultado de la prueba indicó exactamente la solución a mis problemas actuales! Eternamente agradecido!"  <br>- Fábio O. (Evaluación ⭐⭐⭐⭐⭐)  <br><br>💬 "Aprendí a desbloquear los bloques en mi mente. ¡Hoy sé que soy capaz de mucho más!"  <br>- Cristina S.  (Evaluación ⭐⭐⭐⭐⭐)  <br><br>➡ Haga clic en el botón de abajo para comenzar 👇</span>
+
+                <div class="mt-4 d-md-flex align-items-center">
+                    <button class="btn mb-3 mb-md-0 btn_next_page" style="width: auto;">Seguir</button>
+                    <div class="text-white text-left ml-md-3 d-none d-md-block" style="font-size: 12px; line-height: 16px;">pulsa <strong>Enter ↵</strong></div>
+                </div>
+            </div>
+
+            <div class="w-100 pl-3 pr-3 d-none d-md-none align-items-center justify-content-center cont_btn_next animated fadeIn" style="position: fixed; bottom: 48px; height: 56px; left: 0; background-color: rgba(65, 53, 30, 0.8); border: solid 1px rgb(88, 72, 37);">
+                
+                <button class="btn btn_next_page pt-0 pb-0" style="height: 40px; min-height: 40px;">Continuar <svg height="13" width="16"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg></button></div>
+            </div>
+        </div>
+    <!-- fim cont_2 -->
+
+    <!-- questao_1 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_1">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">1 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2>¿Primer nombre? *</h2>
+                            <p>Por ejemplo: Juan</p>
+
+                            <input type="text" name="nome" class="w-100 input_" placeholder="Escribe aquí tu respuesta...">
+
+                            <div class="alert alert_danger float-left mt-3"><i class="fa fa-warning mr-2"></i> Por favor, rellena este campo</div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="mt-4 align-items-center cont_btn">
+                                <button class="btn_2 mb-3 mb-md-0 btn_next_page" style="width: auto;">Aceptar <svg height="13" width="16" class="ml-1"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg></button>
+                                <div class="text-white text-left ml-md-3" style="font-size: 12px; line-height: 16px;">pulsa <strong>Enter ↵</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_1 -->
+
+    <!-- questao_2 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_2">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">2 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2>Sexo: *</h2>
+                            <p>Saber si es hombre o mujer ayuda en el entendimiento del tipo de energía primaria que recibe del Universo, desde que nació ...</p>
+
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="white-space: nowrap; width: 168px;">
+                                    <div class="d-flex align-items-center">
+                                    
+                                        <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">A</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">A</strong></div></div>
+
+                                        <div class="text_">Mujer</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="white-space: nowrap; width: 168px;">
+                                    <div class="d-flex align-items-center">
+                                    
+                                        <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">B</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">B</strong></div></div>
+
+                                        <div class="text_">Hombre</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_2 -->
+
+    <!-- questao_3 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_3">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">3 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2><span class="nome">teste</span>, ¿Cuántos años tiene?Este campo es obligatorio *</h2>
+                            <p>Todas las personas pasan por diferentes ciclos energéticos a lo largo de la vida, y esta pregunta es fundamental para comprender cuál está sucediendo en la vida ahora</p>
+
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="white-space: nowrap; width: 256px;">
+                                    <div class="d-flex align-items-center">
+                                    
+                                        <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">A</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">A</strong></div></div>
+
+                                        <div class="text_">Menos de 25 años</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="white-space: nowrap; width: 256px;">
+                                    <div class="d-flex align-items-center">
+                                    
+                                        <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">B</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">B</strong></div></div>
+
+                                        <div class="text_">Entre 26 y 35 años</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="white-space: nowrap; width: 256px;">
+                                    <div class="d-flex align-items-center">
+                                    
+                                        <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">C</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">C</strong></div></div>
+
+                                        <div class="text_">Entre 36 y 55 años</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="white-space: nowrap; width: 256px;">
+                                    <div class="d-flex align-items-center">
+                                    
+                                        <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">D</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">D</strong></div></div>
+
+                                        <div class="text_">Más de 55 años</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_3 -->
+
+    <!-- questao_4 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_4">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">4 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2><span class="nome">teste</span>, en qué área de vida gustaría que el Universo dijera SI?Este campo es obligatorio *</p>
+
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="white-space: nowrap; width: 368px;">
+                                    <div class="d-flex align-items-center">
+                                    
+                                        <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">A</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">A</strong></div></div>
+
+                                        <div class="text_">Vida Financiera y Profesional</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="white-space: nowrap; width: 368px;">
+                                    <div class="d-flex align-items-center">
+                                    
+                                        <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">B</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">B</strong></div></div>
+
+                                        <div class="text_">Vida Amorosa y de Relaciones</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="white-space: nowrap; width: 368px;">
+                                    <div class="d-flex align-items-center">
+                                    
+                                        <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">C</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">C</strong></div></div>
+
+                                        <div class="text_">Paz de espíritu</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_4 -->
+
+    <!-- questao_5 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_5">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">5 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2>¿Qué sientes, cuando piensas en lo que te aleja de la Vida Financiera y Profesional que deseas?</p>
+
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">A</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">A</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Siento que todo está un lío, y falta una dirección clara para resolver las cosas. Pero sé que voy a conseguirlo.</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">B</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">B</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Siento mucha ansiedad, y no sé si voy a conseguirlo. ¡Necesito ayuda!</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">C</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">C</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Me siento confiado y sé que es una cuestión de tiempo hasta que el universo me diga SÍ.</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_5 -->
+
+    <!-- questao_6 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_6">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">6 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2>Basado en las respuestas que el Universo te ha traído hoy ... ¿Sientes que los sueños están CERCA o LEJOS de suceder?</p>
+
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">A</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">A</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Siento que está cerca, apenas falta superar algunos obstáculos ...</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">B</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">B</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Siento que está muy lejos, y tal vez nunca suceda.</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">C</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">C</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Yo creo que basta trabajar duro ... Realizar mis sueños será consecuencia.</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_6 -->
+
+    <!-- questao_7 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_7">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">7 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2>Cuando piensas en los próximos años de  vida, ¿qué ves?</p>
+
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">A</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">A</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Tengo mucha dificultad para ver las cosas. Sólo espero no repetir los mismos errores del pasado.</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">B</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">B</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">¡Sólo de pensar en el futuro, ya me quedan en estado de nervios!</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">C</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">C</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Yo sé exactamente los próximos pasos, y tengo un plan para lograr mis objetivos.</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_7 -->
+
+    <!-- questao_8 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_8">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">8 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2>¿Cómo funciona la mente a la hora de tomar decisiones y actitudes?</p>
+
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">A</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">A</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Yo sigo mi intuición y no dejo nada bloquearme en el camino.</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">B</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">B</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Yo busco ser paciente y espero por el momento adecuado de hacer las cosas.</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_8 -->
+
+    <!-- questao_9 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_9">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">9 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2>¿Tienes alguna idea de los motivos que están haciendo que el universo rechaza los deseos?</p>
+
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">A</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">A</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">No sé, ni siquiera me imagino ... Sólo necesito que cambie rápido!</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">B</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">B</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Tengo una noción de las causas posibles, sólo no sé cómo resolver el problema.</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_9 -->
+
+    <!-- questao_10 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.3s;" id="questao_10">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute; margin-top: -10px; left: -25px;"><i class="fa fa-quote-left ml-1"></i></div>
+                        <div class="w-100">
+                            <h2><span class="nome"></span> ¡Estoy sorprendido con las respuestas! <br>Tiene el perfil energético exacto, para que el UNIVERSO sólo diga SI a los deseos ...</h2>
+                            <p>(Haga clic en continuar)</p>
+
+                            <div class="clearfix"></div>
+
+                            <div class="mt-4 align-items-center cont_btn">
+                                <button class="btn_2 mb-3 mb-md-0 btn_next_page" style="width: auto;">Continuar</button>
+                                <div class="text-white text-left ml-md-3" style="font-size: 12px; line-height: 16px;">pulsa <strong>Enter ↵</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_10 -->
+
+    <!-- questao_11 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.3s;" id="questao_11">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute; margin-top: -10px; left: -25px;"><i class="fa fa-quote-left ml-1"></i></div>
+                        <div class="w-100">
+                            <h2>Al mismo tiempo, quedó claro para mí el motivo de estar teniendo tantos obstáculos en la vida ... Principalmente, en su <span class="mr-1 master_foco"></span></h2>
+                            <p>(Haga clic en continuar)</p>
+
+                            <div class="clearfix"></div>
+
+                            <div class="mt-4 align-items-center cont_btn">
+                                <button class="btn_2 mb-3 mb-md-0 btn_next_page" style="width: auto;">Continuar</button>
+                                <div class="text-white text-left ml-md-3" style="font-size: 12px; line-height: 16px;">pulsa <strong>Enter ↵</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_11 -->
+
+    <!-- questao_12 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.3s;" id="questao_12">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute; margin-top: -10px; left: -25px;"><i class="fa fa-quote-left ml-1"></i></div>
+                        <div class="w-100">
+                            <h2>Y le mostraré un informe personalizado, con todas las respuestas necesarias para iluminar el camino ...</h2>
+                            <p>(Haga clic en continuar)</p>
+
+                            <img style="width: 230px;" src="assets/img/default.png">
+
+                            <div class="clearfix"></div>
+
+                            <div class="mt-4 align-items-center cont_btn">
+                                <button class="btn_2 mb-3 mb-md-0 btn_next_page" style="width: auto;">Continuar</button>
+                                <div class="text-white text-left ml-md-3" style="font-size: 12px; line-height: 16px;">pulsa <strong>Enter ↵</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_12 -->
+
+    <!-- questao_13 -->
+        <div class="w-100 h-100 cont_questao" style="position: fixed; bottom: -110%; left: 0; position: relative; padding-bottom: 50px; overflow: auto; transition: 0.5s;" id="questao_13">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="_padding text-white d-block ml-auto mr-auto w-100">
+                    
+                    <div class="d-flex align-items-start" style="position: relative;">
+                        <div class="numero_" style="white-space: nowrap; position: absolute;">11 <i class="fa fa-arrow-right ml-1"></i></div>
+                        <div class="w-100">
+                            <h2><span class="nome">teste</span> , como esta prueba se limita al número de respuestas, al finalizar la preselección, estarás quitando la vacante de otra persona que podría leer el informe hasta el final ... Se compromete a leer hasta el final, y tomar las acciones necesarias para cambiar el camino de la vida? *</p>
+                                <br>
+
+                            <div class="">
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">A</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">A</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">¡SÍ, leeré cuidadosamente mi informe personalizado hasta el final!</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between mb-2 check_box" style="max-width: 720px;">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center cont_letra"><div class="text_letra">B</div> <div class="text_tecla">Tecla <strong style="padding: 4px;">B</strong></div></div>
+                                        </div>
+
+                                        <div class="text_">Deja a otra persona, eso no me interesa ...</div>
+                                    </div>
+
+                                    <div class="cont_checked" style="padding: 0px 12px 0px 20px;">
+                                        <svg height="13" width="16" fill="currentColor" style="color: rgb(243, 205, 89);"><path d="M14.293.293l1.414 1.414L5 12.414.293 7.707l1.414-1.414L5 9.586z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 align-items-center cont_btn" style="display: none;">
+                                <button class="btn_2 mb-3 mb-md-0 ml-auto mr-auto w-100 btn_enviar" style="width: auto;">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- fim questao_13 -->
+
+    <script type="text/javascript">
+        $('#cont_2').on('scroll', function() {
+
+            if($(document).width() <= 768) {
+
+                if($('#cont_2').find('._padding').outerHeight() - $('body').height() - $(this).scrollTop() + 48 > 0) {
+
+
+                    $("#cont_2").find('.cont_btn_next').removeClass('d-none').addClass('d-flex');
+                } else {
+
+                    $("#cont_2").find('.cont_btn_next').removeClass('d-flex').addClass('d-none');
+                }
+            } else {
+
+                $("#cont_2").find('.cont_btn_next').removeClass('d-flex').addClass('d-none');
+            }
+        })
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
