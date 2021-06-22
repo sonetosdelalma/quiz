@@ -1,6 +1,6 @@
 $(function() {
 
-	var master_url = 'https://prosperidhoy.com/?utm_medium=quiz-luiz';
+	var master_url = 'https://prosperidhoy.com/quiz-pv01?utm_medium=quiz-luiz';
 	var master_nome = '';
 	var master_sexo = '';
 	var master_idade = '';
